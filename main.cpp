@@ -145,11 +145,13 @@ public:
     void cadastrarAstronauta(std::string cpf, std::string nome, int idade)
     {
         astronautas[cpf] = new Astronauta(cpf, nome, idade);
+        std::cout << "Astronauta cadastrado.";
     }
 
     void cadastrarVoo(int codigo)
     {
         voos[codigo] = new Voo(codigo);
+        std::cout << "Voo cadastrado.\n";
     }
 
     void adicionarAstronautaEmVoo(int codigo, std::string cpf)
@@ -159,6 +161,7 @@ public:
             if (astronautas.count(cpf))
             {
                 voos[codigo]->adicionarAstronauta(astronautas[cpf]);
+                std::cout << "Astronauta adicionado.\n";
             }
             else
             {
@@ -176,7 +179,6 @@ public:
         if (voos.count(codigo))
         {
             voos[codigo]->removerAstronauta(cpf);
-            
         }
         else
         {
@@ -195,10 +197,11 @@ public:
             if (voo->passageiros.size() > 0 && todosDisponiveis)
             {
                 voo->lancar();
+                std::cout << "Voo lancado com sucesso!\n";
             }
             else if(voo->passageiros.size() <= 0)
             {
-                std::cout << "Nao eh possivel lancar o voo. Verifique se tem pelo menos um astronauta disponivel.\n";
+                std::cout << "Nao foi possivel lancar o voo, pois ele nao possui astronautas.\n";
             }
         }
         else
@@ -212,6 +215,7 @@ public:
         if (voos.count(codigo))
         {
             voos[codigo]->explodir();
+            std::cout << "Voo explodido!\n";
         }
         else
         {
@@ -224,6 +228,7 @@ public:
         if (voos.count(codigo))
         {
             voos[codigo]->finalizar();
+            std::cout << "Voo finalizado!\n";
         }
         else
         {
