@@ -145,7 +145,7 @@ public:
     void cadastrarAstronauta(std::string cpf, std::string nome, int idade)
     {
         astronautas[cpf] = new Astronauta(cpf, nome, idade);
-        std::cout << "Astronauta cadastrado.";
+        std::cout << "Astronauta cadastrado.\n";
     }
 
     void cadastrarVoo(int codigo)
@@ -215,7 +215,6 @@ public:
         if (voos.count(codigo))
         {
             voos[codigo]->explodir();
-            std::cout << "Voo explodido!\n";
         }
         else
         {
@@ -228,7 +227,6 @@ public:
         if (voos.count(codigo))
         {
             voos[codigo]->finalizar();
-            std::cout << "Voo finalizado!\n";
         }
         else
         {
